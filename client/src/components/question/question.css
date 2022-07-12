@@ -1,0 +1,29 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 40%;
+    height: 85%;
+    margin: auto auto;
+    gap:1rem;
+    margin-top:5rem;
+    background-color:rgba(109, 109, 17, 0.627);
+    
+}
+.questionContainer {
+    margin:auto auto;
+}
+.answers{
+    display: flex;
+    gap:1rem;
+}
+.comment{
+ padding: 2rem;
+}
+img{
+    margin: 2rem;
+}
+
+
+

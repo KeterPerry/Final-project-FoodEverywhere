@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.logo-container {
+    font-size: 4rem;
+    font-family: 'Dancing+Script';
+    letter-spacing: 2px;
+    font-weight:bold;
+    color: rgba(121, 40, 40, 0.318);
+  }
+
+  /* <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Bogdan Rosu - Flaticon</a> */
+  /* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */

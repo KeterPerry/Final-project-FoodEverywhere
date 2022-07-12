@@ -1,0 +1,81 @@
+
+
+.navbarC{
+    width:100%;
+    border: 1px solid rgba(152, 99, 14, 0.288);
+    background-color: rgba(191, 124, 31, 0.118);
+    display: flex;
+    justify-content: center;
+    height: 10%;
+    font-size: 1.5rem;
+  }
+  
+  .navbarL{
+    padding: 2.5rem;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    align-items: center;
+    list-style: none;
+    /* font-size: 1.5rem; */
+    color: rgba(105, 81, 116, 0.185);
+   
+    }
+  
+    .navbarR{
+      padding: 2rem;
+      width: 100%;
+      height: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      gap: 3rem;
+      color: rgba(140, 116, 153, 0.185);
+    }
+    .link {
+      text-decoration: none;
+      font-weight: bold
+    }
+  
+    .link:hover {
+      /* font-size: 2.2rem; */
+      color: rgba(125, 48, 48, 0.305)
+    }
+    /* .cart{
+      width: 15rem;
+    } */
+    
+    /* .App> .login-Container{
+    display: "flex";
+    flex-direction: column;
+    text-align: center;
+    justify-content:center;
+    align-items: center
+    } */
+    .hamburger{
+      display: none; 
+    }
+  
+    
+    @media (max-width: 768px){
+      .navbarC{
+        display: none
+      }
+      
+      
+      .hamburger{
+        display: flex;
+        flex-direction: column;
+      }
+
+        /* flex-direction: column; */
+        /* justify-content: center;
+        align-items:center; */
+      }
+  
+    
+  
+  
