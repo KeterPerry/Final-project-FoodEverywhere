@@ -4,10 +4,11 @@ import { useGame } from "../../context/Game.context.js";
 
 export function Question({ question }) {
   const [comment, setComment] = useState("");
-  const { index, setIndex } = useGame(0);
+  const { index, setIndex, score, setScore } = useGame(0);
   const { questions, setQuestions } = useGame();
 
   const handleClick = (e) => {
+    console.log(e.target.value);
     console.log(questions.length);
     if (index === questions.length - 1) {
       alert("Good Job");
@@ -15,6 +16,7 @@ export function Question({ question }) {
       if (e.target.innerText === question.correctAnswer) {
         e.target.color = "green";
         setComment("Well Done!");
+        setScore((prev) => prev + 1);
         setIndex((prev) => prev + 1);
       } else {
         e.target.color = "red";
@@ -27,7 +29,7 @@ export function Question({ question }) {
     <div className="wrapper">
       <div className="questionContainer">
         <img
-          style={{ width: "25rem", height: "25rem" }}
+          className="image"
           alt="#"
           //   src="https://www.pngkey.com/maxpic/u2q8w7q8o0t4t4o0/"
           src={question.image}
@@ -35,7 +37,7 @@ export function Question({ question }) {
         {/* {`./assets/dice-${this.props.index}.png`} */}
         <br></br>
         <br></br>
-        <h2>{question.question}</h2>
+        <h2 className="question">{question.question}</h2>
         <br></br>
         <br></br>
         <div className="answers">

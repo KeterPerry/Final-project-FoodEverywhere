@@ -10,6 +10,7 @@
 
 .navbar {
   width: 100%;
+  height: 80vh;
   box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
 }
 

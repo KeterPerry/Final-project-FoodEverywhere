@@ -3,10 +3,13 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { usersRouter } from "./routes/users-routes.js";
-// import { conversationRouter } from "./routes/conversation-Route.js";
+import { chatRouter } from "./routes/chat-Route.js";
 // import { messageRouter } from "./routes/message-Route.js";
 import { contactRouter } from "./routes/contact-route.js";
 import { questionsRouter } from "./routes/question-route.js";
+// import "dotenv/config.js";
+
+// console.log(process.env.MONGO_USER);
 
 export const app = express();
 
@@ -25,6 +28,18 @@ app.use(cors());
 
 app.use("/users", usersRouter);
 app.use("/contact", contactRouter);
-// app.use("/conversations", conversationRouter);
+app.use("/chat", chatRouter);
 // app.use("/messages", messageRouter);
 app.use("/questions", questionsRouter);
+
+//Setup Error Handlers
+// const errorHandlers = require("./handlers/errorHandlers");
+// app.use(errorHandlers.notFound);
+// app.use(errorHandlers.mongoseErrors);
+// if (process.env.ENV === "DEVELOPMENT") {
+//   app.use(errorHandlers.developmentErrors);
+// } else {
+//   app.use(errorHandlers.productionErrors);
+// }
+
+// module.exports = app;

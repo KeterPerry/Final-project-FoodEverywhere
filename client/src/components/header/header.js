@@ -26,7 +26,7 @@ export default function Header() {
           </li> */}
           <li>
             {" "}
-            <NavLink to="/messenger" className="link">
+            <NavLink to="/dashboard" className="link">
               Messenger
             </NavLink>
           </li>
@@ -50,17 +50,6 @@ export default function Header() {
             <NavLink className="link" exact to="/login">
               Login
             </NavLink>
-          </li>
-          <li>
-            {" "}
-            <a
-              rel="noreferrer"
-              href="https://www.facebook.com/home.php"
-              target="_blank"
-            >
-              {" "}
-              <img width="10rem" alt="#" src="./assets/facebook.png"></img>
-            </a>
           </li>
         </ul>
       </div>

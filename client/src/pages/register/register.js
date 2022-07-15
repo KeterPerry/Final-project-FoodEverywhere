@@ -98,7 +98,7 @@ function Register() {
             required
           />
         </div>
-        <label htmlFor="confirmPassword" className="form__label">
+        <label id="confirm" htmlFor="confirmPassword" className="form__label">
           Confirm Password
         </label>
         <div className="password">

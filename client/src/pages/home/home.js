@@ -4,11 +4,14 @@ import userApi from "../../apis/userApi";
 import { useState, useEffect } from "react";
 import { useGame } from "../../context/Game.context.js";
 import Spinner from "../../components/spinner/Spinner.js";
+// import CountUp from "react-countup";
+import { Counter } from "../../components/counter.js";
+import StopWatch from "../../components/stopWatch/stopWatch";
 
 export default function Home({}) {
-  const { questions, setQuestions } = useGame();
+  const { questions, setQuestions, index, setIndex, score, setScore } =
+    useGame();
   const [isSpinner, setIsSpinner] = useState(true);
-  const { index, setIndex } = useGame();
   const [errorMessage, setErrorMessage] = useState(null);
 
   console.log(index);
@@ -36,16 +39,12 @@ export default function Home({}) {
         <Spinner />
       ) : (
         <div className="game">
+          <h1 className="score">Score: {score}</h1>
           <Question question={questions[index]} />
+          <StopWatch />
+          {/* <Counter /> */}
         </div>
       )}
     </div>
   );
-}
-
-{
-  /* <img src={questions[0].image}></img> */
-}
-{
-  /* <div>{insertData()}</div> */
 }

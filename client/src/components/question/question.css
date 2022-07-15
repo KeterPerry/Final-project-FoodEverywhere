@@ -11,9 +11,20 @@
     background-color:rgba(109, 109, 17, 0.627);
     
 }
-.questionContainer {
+.questionContainer  {
     margin:auto auto;
+    /* text-align: center; */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.question{
+   width: 80%;
+   padding: 1rem;
+}
+
 .answers{
     display: flex;
     gap:1rem;
@@ -21,9 +32,32 @@
 .comment{
  padding: 2rem;
 }
-img{
-    margin: 2rem;
+.image{
+    margin: 2.5rem;
+    /* width: 25rem;
+    height: 25rem; */
+    width: 45%;
+    height: 45%;
 }
 
 
 
+@media (max-width: 768px){
+    .image{
+      
+        width: 45%;
+        height: 45%;
+    }
+    .answers{
+        flex-direction: column;
+        width:80%;
+    }
+
+
+    question
+    .question{
+        background-color: red;
+       
+        padding: 3rem;
+     }
+}

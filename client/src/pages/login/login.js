@@ -4,23 +4,30 @@ import "./login.css";
 import { useHistory, Redirect } from "react-router-dom";
 import { useUser } from "../../context/User.context";
 // import Button from "../../components/button/Button";
+import { io } from "socket.io-client";
 
 function Login() {
   const history = useHistory();
   const { currentUser, setCurrentUser, setToken } = useUser();
+  const [error, setError] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  // console.log(socket);
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
-  const [redirect, setRedirect] = useState(false);
 
-  useEffect(() => {
-    ///decides whether the screen will rerender.
-    if (currentUser) {
-      setRedirect(true);
-    }
-  }, [currentUser]);
+  useEffect(
+    () => {
+      if (currentUser) {
+        setRedirect(true);
+      }
+      // setupSocket();
+    },
+    [currentUser]
+    // [socket]
+  );
 
   const handleChange = (e) => {
     setForm((prev) => {
@@ -44,7 +51,7 @@ function Login() {
       });
       localStorage.setItem("Token", data.token);
       setError("");
-      history.push("/");
+      history.push("/dashboard");
     } catch (err) {
       console.log(err.message);
       // setError(err.response.data || err.message);
@@ -55,6 +62,32 @@ function Login() {
   if (redirect) {
     return <Redirect to="/" />;
   }
+
+  // const setupSocket = () => {
+  //   const token = localStorage.getItem("Token");
+  //   if (token && !socket) {
+  //     console.log("setupSocket");
+  //     const newSocket = io("http://localhost:4000", {
+  //       query: {
+  //         token: localStorage.getItem("Token"),
+  //       },
+  //     });
+  //     console.log(newSocket);
+  //     newSocket.connect();
+
+  //     // newSocket.on("disconnect", () => {
+  //     //   setSocket(null);
+  //     //   // setTimeout(setupSocket(), 3000);
+  //     //   console.log("disconnected");
+  //     // });
+
+  //     newSocket.on("connect", () => {
+  //       console.log("connected");
+  //     });
+
+  //     setSocket(newSocket);
+  //   }
+  // };
 
   return (
     <div className="login-container">
