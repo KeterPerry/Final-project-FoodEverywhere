@@ -34,17 +34,27 @@ export default function Home({}) {
   }, [index]);
 
   return (
-    <div>
+    <>
       {isSpinner ? (
         <Spinner />
       ) : (
         <div className="game">
           <h1 className="score">Score: {score}</h1>
-          <Question question={questions[index]} />
-          <StopWatch />
+          <div className="question-timer">
+            <div className="stop-watch-div">
+              {" "}
+              <StopWatch />
+            </div>
+            <div className="question-div">
+              {" "}
+              <Question question={questions[index]} />
+            </div>
+          </div>
           {/* <Counter /> */}
         </div>
       )}
-    </div>
+    </>
   );
 }
+
+// div className="game-container"

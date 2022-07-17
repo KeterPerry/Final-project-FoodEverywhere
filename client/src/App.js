@@ -51,12 +51,12 @@ function App() {
       <Header />
       <Switch>
         {/* <Route path="/" component={IndexPage} exact /> */}
-        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
         {/* <Route exact path="/messenger" component={Messenger} /> */}
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route path="/login" render={() => <Login />} exact />
+        <Route exact path="/" component={Login} />
+        {/* <Route path="/login" render={() => <Login />} exact /> */}
         {/* <Route path="/dashboard" render={() => <DashboardPage />} exact /> */}
         <Route exact path="/dashboard" component={DashboardPage} />
         {/* <Route path="/chatroom/:id" render={() => <ChatroomPage />} exact /> */}

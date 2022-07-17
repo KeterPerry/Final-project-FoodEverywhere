@@ -1,8 +1,10 @@
 import "./hamburgerMenu.css";
 import { NavLink } from "react-router-dom";
 import { Logo } from "../logo/logo.js";
+import { useUser } from "../../context/User.context.js";
 
 export function Hamburger() {
+  const { Login, setLogin, token, setToken, setCurrentUser } = useUser();
   return (
     <nav>
       <div class="navbar">
@@ -17,7 +19,7 @@ export function Hamburger() {
             <Logo />
             <li>
               {" "}
-              <NavLink className="link" exact to="/">
+              <NavLink className="link" exact to="/home">
                 Home Page
               </NavLink>
             </li>
@@ -47,8 +49,8 @@ export function Hamburger() {
               </NavLink>
             </li>
             <li>
-              <NavLink className="link" exact to="/login">
-                Login
+              <NavLink className="link" exact to="/">
+                {Login}
               </NavLink>
             </li>
           </div>

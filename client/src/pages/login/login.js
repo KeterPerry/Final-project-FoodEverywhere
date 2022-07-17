@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 
 function Login() {
   const history = useHistory();
-  const { currentUser, setCurrentUser, setToken } = useUser();
+  const { currentUser, setCurrentUser, setToken, Login, setLogin } = useUser();
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState(false);
 
@@ -51,7 +51,8 @@ function Login() {
       });
       localStorage.setItem("Token", data.token);
       setError("");
-      history.push("/dashboard");
+      setLogin("Logout");
+      history.push("/home");
     } catch (err) {
       console.log(err.message);
       // setError(err.response.data || err.message);

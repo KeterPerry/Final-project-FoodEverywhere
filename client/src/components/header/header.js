@@ -1,12 +1,59 @@
-// import React from "react";
-// import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, Redirect } from "react-router-dom";
 import "./header.css";
-// import { myContext } from "../context/myContext";
+import { useUser } from "../../context/User.context.js";
 import Logo from "../logo/logo.js";
 import { Hamburger } from "./hamburgerMenu.js";
+import userApi from "../../apis/userApi.js";
+import { useEffect } from "react";
 
 export default function Header() {
+  const {
+    Login,
+    setLogin,
+    token,
+    setToken,
+    setCurrentUser,
+    currentUser,
+    redirect,
+    setRedirect,
+  } = useUser();
+  // const history = useHistory();
+
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     setRedirect(true);
+  //   }
+  // }, [currentUser]);
+
+  const handleClick = () => {
+    if (Login === "Logout") {
+      console.log("brrrrr");
+      setLogin("Login");
+      // history.push("/");
+
+      if (redirect) {
+        return <Redirect to="/" />;
+      }
+
+      logOut();
+    }
+  };
+
+  const logOut = async () => {
+    try {
+      const options = {
+        headers: { Authorization: token },
+      };
+      await userApi(options).post("/users/logout");
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setCurrentUser(null);
+      setToken(null);
+      localStorage.removeItem("Token");
+    }
+  };
+
   return (
     <div>
       <div className="navbarC">
@@ -14,7 +61,7 @@ export default function Header() {
           <Logo />
           <li>
             {" "}
-            <NavLink className="link" exact to="/">
+            <NavLink className="link" exact to="/home">
               Home Page
             </NavLink>
           </li>
@@ -47,8 +94,8 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" exact to="/login">
-              Login
+            <NavLink onClick={handleClick} className="link" exact to="/">
+              {Login}
             </NavLink>
           </li>
         </ul>

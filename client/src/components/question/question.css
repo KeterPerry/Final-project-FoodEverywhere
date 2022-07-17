@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    width: 40%;
-    height: 85%;
-    margin: auto auto;
+    width: 100%;
+    height: 95%;
+    /* margin: auto auto; */
     gap:1rem;
-    margin-top:5rem;
+    /* margin-top:1rem; */
+    margin-right:3rem;
     background-color:rgba(109, 109, 17, 0.627);
     
 }
@@ -18,6 +19,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
+    padding:1rem;
 }
 
 .question{
@@ -33,11 +36,11 @@
  padding: 2rem;
 }
 .image{
-    margin: 2.5rem;
-    /* width: 25rem;
-    height: 25rem; */
-    width: 45%;
-    height: 45%;
+    /* margin: 2.5rem; */
+    width: 25rem;
+    height: 25rem;
+    /* width: 45%;
+    height: 45%; */
 }
 
 
