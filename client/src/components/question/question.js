@@ -28,18 +28,17 @@ export function Question({ question }) {
   return (
     <div className="wrapper">
       <div className="questionContainer">
-        <img
-          className="image"
-          alt="#"
-          //   src="https://www.pngkey.com/maxpic/u2q8w7q8o0t4t4o0/"
-          src={question.image}
-        ></img>
+        <div className="image">
+          <img
+            className="img"
+            alt="#"
+            //   src="https://www.pngkey.com/maxpic/u2q8w7q8o0t4t4o0/"
+            src={question.image}
+          ></img>
+        </div>
         {/* {`./assets/dice-${this.props.index}.png`} */}
-        <br></br>
-        <br></br>
+
         <h2 className="question">{question.question}</h2>
-        <br></br>
-        <br></br>
         <div className="answers">
           <button onClick={handleClick}>{question.answers.a}</button>
           <button onClick={handleClick}>{question.answers.b}</button>

@@ -4,13 +4,13 @@ import { useState } from "react";
 import userApi from "../../apis/userApi";
 
 export function Contact() {
+  const [submitMsg, setSubmitMsg] = useState("");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     email: "",
     comments: "",
   });
-  const [submitMsg, setSubmitMsg] = useState("");
 
   const handleChange = (e) => {
     setForm((prev) => {
@@ -41,8 +41,6 @@ export function Contact() {
       <div className="container">
         <div className="row-header">
           <h1>Contact Us! &nbsp;</h1>
-          <br></br>
-          <h3>Fill out the form below to learn more!</h3>
         </div>
         <div className="row-body">
           <form onSubmit={handleSubmit} action="#">

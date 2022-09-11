@@ -24,6 +24,7 @@ function ChatroomPage({ match }) {
   // };
 
   const sendMessage = () => {
+    console.log(messageRef.current.value);
     if (socket) {
       socket.emit("chatroomMessage", {
         chatroomId,
@@ -35,14 +36,17 @@ function ChatroomPage({ match }) {
   };
 
   React.useEffect(() => {
-    const token = localStorage.getItem("CC_Token");
+    const token = localStorage.getItem("Token");
     if (token) {
       const payload = JSON.parse(atob(token.split(".")[1]));
-      setUserId(payload.id);
+      console.log(payload);
+      setUserId(payload._id);
     }
     if (socket) {
+      console.log("socket");
       socket.on("newMessage", (message) => {
         const newMessages = [...messages, message];
+        console.log(newMessages);
         setMessages(newMessages);
       });
     }

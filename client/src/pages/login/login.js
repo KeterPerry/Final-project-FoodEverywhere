@@ -18,6 +18,7 @@ function Login() {
     password: "",
   });
 
+  console.log(form.password);
   useEffect(
     () => {
       if (currentUser) {

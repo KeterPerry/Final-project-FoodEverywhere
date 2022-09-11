@@ -67,66 +67,67 @@ function Register() {
   }
 
   return (
-    <div className="register">
-      <form className="form-body">
-        <h1>Register</h1>
-        <label htmlFor="email" className="form__label">
-          Email{" "}
-        </label>
-        <div className="email">
-          <input
-            onChange={handleChange}
-            value={form.email}
-            type="email"
-            id="email"
-            className="form__input"
-            placeholder="Email"
-            required
-          />
-        </div>
-        <label htmlFor="password" className="form__label">
-          Password{" "}
-        </label>
-        <div className="password">
-          <input
-            onChange={handleChange}
-            value={form.password}
-            className="form__input"
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <label id="confirm" htmlFor="confirmPassword" className="form__label">
-          Confirm Password
-        </label>
-        <div className="password">
-          <input
-            onChange={(e) => setConfirm(e.target.value)}
-            value={confirm}
-            className="form__input"
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-        <label htmlFor="name" className="form__label">
-          Name{" "}
-        </label>
-        <div className="username">
-          <input
-            onChange={handleChange}
-            value={form.name}
-            className="form__input"
-            type="text"
-            id="name"
-            placeholder="Name "
-            required
-          />
-        </div>
-        {/* <label htmlFor="savedLanguage" className="form__label">
+    <div className="register-main">
+      <div className="register-wrapper">
+        <h1 className="register">Register</h1>
+        <form className="form-body">
+          <label htmlFor="email" className="form__label">
+            Email
+          </label>
+          <div className="email">
+            <input
+              onChange={handleChange}
+              value={form.email}
+              type="email"
+              id="email"
+              className="form__input"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <label htmlFor="password" className="form__label">
+            Password{" "}
+          </label>
+          <div className="password">
+            <input
+              onChange={handleChange}
+              value={form.password}
+              className="form__input"
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <label id="confirm" htmlFor="confirmPassword" className="form__label">
+            Confirm Password
+          </label>
+          <div className="password">
+            <input
+              onChange={(e) => setConfirm(e.target.value)}
+              value={confirm}
+              className="form__input"
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <label htmlFor="name" className="form__label">
+            Name{" "}
+          </label>
+          <div className="username">
+            <input
+              onChange={handleChange}
+              value={form.name}
+              className="form__input"
+              type="text"
+              id="name"
+              placeholder="Name "
+              required
+            />
+          </div>
+          {/* <label htmlFor="savedLanguage" className="form__label">
           Language{" "}
         </label>
         <div className="language">
@@ -142,11 +143,12 @@ function Register() {
             <option value="English">English</option>
             <option value="Russian">Russian</option>
           </select> */}
-        <div className="register-button">
-          <button onClick={handleSubmit}>Register</button>
-        </div>
-        <div className="error">{error}</div>
-      </form>
+          <div className="register-button">
+            <button onClick={handleSubmit}>Register</button>
+          </div>
+          <div className="error">{error}</div>
+        </form>
+      </div>
     </div>
   );
 }

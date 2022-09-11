@@ -15,6 +15,10 @@ export default function Home({}) {
   const [errorMessage, setErrorMessage] = useState(null);
 
   console.log(index);
+
+  const reset = () => {
+    document.location.reload();
+  };
   useEffect(() => {
     async function fetchData() {
       try {
@@ -40,17 +44,17 @@ export default function Home({}) {
       ) : (
         <div className="game">
           <h1 className="score">Score: {score}</h1>
-          <div className="question-timer">
+          <div className="question-cont">
             <div className="stop-watch-div">
-              {" "}
               <StopWatch />
             </div>
             <div className="question-div">
-              {" "}
               <Question question={questions[index]} />
             </div>
+            <div className="reset">
+              <button onClick={reset}>Reset</button>
+            </div>
           </div>
-          {/* <Counter /> */}
         </div>
       )}
     </>

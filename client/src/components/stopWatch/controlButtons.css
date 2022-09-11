@@ -20,7 +20,7 @@
     border-radius: 14px;
     margin: 0px 6px;
     display: flex;
-    border: 2px solid #e42a2a;
+    border: 2px solid  rgb(7, 54, 7);
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -30,9 +30,10 @@
     }
     
     .btn-one{
-        background-color: #e42a2a;
+      background-color: rgb(7, 54, 7);
     }
     
     .btn-two{
-        background-color: #e42a2a;
+        /* background-color: #e42a2a; */
+        background-color: rgb(7, 54, 7);
     }

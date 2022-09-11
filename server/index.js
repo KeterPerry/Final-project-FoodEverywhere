@@ -3,29 +3,22 @@ import "./db/mongoose.js";
 import "./models/user/user.schema.js";
 // import "./models/Chatroom";
 // import "./models/Message";
+import http from "http";
 import { User } from "../server/models/user/user.model.js";
 import { Message } from "../server/models/message.js";
-// import { Server } from "socket.io";
+import { Server } from "socket.io";
 import jwt from "jsonwebtoken";
-import ws from "socket.io";
+// import ws from "socket.io";
 
-const PORT = process.env.PORT || 4000;
-const server = app.listen(PORT, () =>
+const server = http.createServer(app);
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () =>
   console.log(`The server is up and running on port ${PORT}`)
 );
 
 //////////////////////////////////////////////////
-const io = ws(server, {
-  allowEIO3: true,
-  cors: {
-    origin: true,
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
-});
-
-////////////////////////////////////////////////
-// const io = new Server({
+// const io = ws(server, {
 //   allowEIO3: true,
 //   cors: {
 //     origin: true,
@@ -34,6 +27,16 @@ const io = ws(server, {
 //   },
 // });
 
+////////////////////////////////////////////////
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:8080",
+    methods: ["GET", "POST"],
+  },
+});
+
+////////////////////////////////////
 // io.on("connection", (socket) => {
 //   console.log("Connected: " + socket.userId);
 // });
@@ -43,52 +46,73 @@ const io = ws(server, {
 // const Message = mongoose.model("Message");
 // const User = mongoose.model("users");
 
-io.use(async (socket, next) => {
-  // console.log("bla");
-  try {
-    const token = socket.handshake.query.token;
-    const payload = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
-    console.log(process.env.JWT_TOKEN_SECRET);
-    console.log(payload);
-    socket.userId = payload._id;
-    next();
-  } catch (err) {}
-});
+// io.use(async (socket, next) => {
+// console.log("bla");
+//   try {
+//     const token = socket.handshake.query.token;
+//     console.log(token);
+//     const payload = jwt.verify(token, process.env.JWT_TOKEN_SECRET);
+//     console.log(process.env.JWT_TOKEN_SECRET);
+//     console.log(payload);
+//     socket.userId = payload._id;
+//     next();
+//   } catch (err) {}
+// });
+
+// io.on("connection", (socket) => {
+//   console.log("Connected: " + socket.userId);
 
 io.on("connection", (socket) => {
-  console.log("Connected: " + socket.userId);
+  console.log(`User Connected: ${socket.id}`);
+
+  // socket.on("joinRoom", ({ chatroomId }) => {
+  //   socket.join(chatroomId);
+  //   console.log("A user joined chatroom: " + chatroomId);
+  // });
+
+  // socket.on("leaveRoom", ({ chatroomId }) => {
+  //   socket.leave(chatroomId);
+  //   console.log("A user left chatroom: " + chatroomId);
+  // });
+
+  // socket.on("chatroomMessage", async ({ chatroomId, message }) => {
+  //   console.log("chatroomMessage");
+  //   if (message.trim().length > 0) {
+  //     const user = await User.findOne({ _id: socket.userId });
+  //     const newMessage = new Message({
+  //       chatroom: chatroomId,
+  //       user: socket.userId,
+  //       message,
+  //     });
+  //     io.to(chatroomId).emit("newMessage", {
+  //       message,
+  //       name: user.name,
+  //       userId: socket.userId,
+  //     });
+  //     await newMessage.save();
+  //   }
+  // });
+
+  ////////////////////////////////////////////////////////////////////
+
+  socket.on("join_room", (data) => {
+    socket.join(data);
+    console.log(`User with ID: ${socket.id} joined room: ${data}`);
+  });
+
+  socket.on("send_message", (data) => {
+    socket.to(data.room).emit("receive_message", data);
+  });
 
   // socket.on("disconnect", () => {
   //   console.log("Disconnected: " + socket.userId);
   // });
 
-  socket.on("joinRoom", ({ chatroomId }) => {
-    socket.join(chatroomId);
-    console.log("A user joined chatroom: " + chatroomId);
+  socket.on("disconnect", () => {
+    console.log("User Disconnected", socket.id);
   });
 
-  socket.on("leaveRoom", ({ chatroomId }) => {
-    socket.leave(chatroomId);
-    console.log("A user left chatroom: " + chatroomId);
-  });
-
-  socket.on("chatroomMessage", async ({ chatroomId, message }) => {
-    console.log("chatroomMessage");
-    if (message.trim().length > 0) {
-      const user = await User.findOne({ _id: socket.userId });
-      const newMessage = new Message({
-        chatroom: chatroomId,
-        user: socket.userId,
-        message,
-      });
-      io.to(chatroomId).emit("newMessage", {
-        message,
-        name: user.name,
-        userId: socket.userId,
-      });
-      await newMessage.save();
-    }
-  });
+  /////////////////////////////////////////////////////////////////
 });
 
 //   socket.on("send_message", (data) => {

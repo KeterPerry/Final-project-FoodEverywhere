@@ -26,17 +26,16 @@ export default function Header() {
   // }, [currentUser]);
 
   const handleClick = () => {
-    if (Login === "Logout") {
-      console.log("brrrrr");
-      setLogin("Login");
-      // history.push("/");
+    // if (Login === "Logout")
+    //   console.log("brrrrr");
+    setLogin("Login");
+    // history.push("/");
 
-      if (redirect) {
-        return <Redirect to="/" />;
-      }
+    // if (redirect) {
+    //   return <Redirect to="/" />;
+    // }
 
-      logOut();
-    }
+    logOut();
   };
 
   const logOut = async () => {
@@ -94,7 +93,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={handleClick} className="link" exact to="/">
+            <NavLink to="/login" onClick={handleClick} className="link">
               {Login}
             </NavLink>
           </li>
