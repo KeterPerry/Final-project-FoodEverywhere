@@ -31,7 +31,7 @@ server.listen(PORT, () =>
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:8080",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
@@ -101,7 +101,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_message", (data) => {
-    socket.to(data.room).emit("receive_message", data);
+    socket.to(data.room).emit("receive_message", data.message);
   });
 
   // socket.on("disconnect", () => {
