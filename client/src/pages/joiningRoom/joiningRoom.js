@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 import { useState, useEffect } from "react";
-import Chat from "../../chat/Chat.js";
+import Chat from "../../components/chat/Chat.js";
 import "./joiningRoom.css";
 // const socket = io.connect("http://localhost:3001");
 // console.log("this is", socket);
