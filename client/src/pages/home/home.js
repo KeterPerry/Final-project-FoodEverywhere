@@ -1,64 +1,16 @@
-import { Question } from "../../components/question/question.js";
+import React from "react";
 import "./home.css";
-import userApi from "../../apis/userApi";
-import { useState, useEffect } from "react";
-import { useGame } from "../../context/Game.context.js";
-import Spinner from "../../components/spinner/Spinner.js";
-// import CountUp from "react-countup";
-import { Counter } from "../../components/counter.js";
-import StopWatch from "../../components/stopWatch/stopWatch";
+import Logo from "../../components/logo/logo.js";
 
-export default function Home({}) {
-  const { questions, setQuestions, index, setIndex, score, setScore } =
-    useGame();
-  const [isSpinner, setIsSpinner] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  console.log(index);
-
-  const reset = () => {
-    document.location.reload();
-  };
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await userApi().get("/questions/getQuestions");
-        console.log(data);
-        console.log(data[0].image);
-        console.log(data[0].answers.a);
-        setQuestions(data);
-        setIsSpinner(false);
-      } catch (err) {
-        console.log(err);
-        setErrorMessage("There has been an error, please try again");
-      }
-    }
-
-    fetchData();
-  }, [index]);
-
+function Home() {
   return (
-    <>
-      {isSpinner ? (
-        <Spinner />
-      ) : (
-        <div className="game">
-          <h1 className="score">Score: {score}</h1>
-          <div className="question-cont">
-            <div className="stop-watch-div">
-              <StopWatch />
-            </div>
-            <div className="question-div">
-              <Question question={questions[index]} />
-            </div>
-            <div className="reset">
-              <button onClick={reset}>Reset</button>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+    <div>
+      <div className="home-pic">
+        <div className="side-logo">FoodEverywhere</div>
+        {/* <img src="/assets/homepic.jpg"></img> */}
+      </div>
+    </div>
   );
 }
 
-// div className="game-container"
+export default Home;

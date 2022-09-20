@@ -3,9 +3,11 @@ import "./footer.css";
 export default function Footer() {
   return (
     <div className="footer">
-      <img src="/facebook.png"></img>
-      <img src="/instagram.png"></img>
-      <img src="/twitter-sign.png"></img>
+      <div className="social-container">
+        <img src="/facebook.png"></img>
+        <img src="/instagram.png"></img>
+        <img src="/twitter-sign.png"></img>
+      </div>
 
       {/* <a href="facebook.png" title="facebook icons"></a>
       <a

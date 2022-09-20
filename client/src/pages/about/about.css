@@ -1,0 +1,59 @@
+.about-container{
+    height: 82vh;
+    width: 100%;
+    display: flex;
+    background-color: rgba(72, 70, 84, 0.792);
+    position: relative;
+}
+
+.chineesefood{
+    width:25%;
+    height:80%;
+    opacity: 0.8;
+
+}
+
+.girleating{
+    height: 82vh;
+    width: 50%;
+    opacity: 0.5;
+}
+
+.italian{
+    width:25%;
+    height:80%;
+    opacity: 0.8;   
+}
+
+.des{
+    position: absolute;
+    margin-top: -18rem;
+    margin-left: 37rem;
+    font-size:2rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    z-index: 1;
+    font-weight: bold;
+    color: rgba(165, 42, 42, 0.837);
+    width: 57rem;
+    height: max-content;
+    box-shadow: 0.5px;
+    background-color:rgba(214, 194, 194, 0.2);
+    text-align-last: center;
+}
+
+.image1{
+    width: 100%;
+    height: 100%;
+}
+@media(max-width:768px){
+.des{
+    width:45rem;
+    position:absolute;
+    margin-left: 3rem;
+    margin-top: -20rem;
+}
+.about-container{
+    height:88vh;
+
+}
+}

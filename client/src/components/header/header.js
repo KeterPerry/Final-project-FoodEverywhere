@@ -60,19 +60,25 @@ export default function Header() {
           <Logo />
           <li>
             {" "}
-            <NavLink className="link" exact to="/home">
+            <NavLink className="link" exact to="/">
               Home Page
             </NavLink>
           </li>
-          {/* <li>
+          <li>
             {" "}
             <NavLink to="/About" className="link">
               About
             </NavLink>
-          </li> */}
+          </li>
           <li>
             {" "}
-            <NavLink to="/dashboard" className="link">
+            <NavLink to="/games" className="link">
+              Games
+            </NavLink>
+          </li>
+          <li>
+            {" "}
+            <NavLink to="/messanger" className="link">
               Messenger
             </NavLink>
           </li>

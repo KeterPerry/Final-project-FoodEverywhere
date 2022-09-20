@@ -3,10 +3,18 @@
     height: 8vh;
     background-color: rgba(191, 124, 31, 0.118);
     /* border: 1px solid brown; */
- 
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+.social-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem
 
 }
 img{
