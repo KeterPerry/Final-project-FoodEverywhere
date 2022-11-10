@@ -1,0 +1,45 @@
+.allFoods-wrapper{
+    width: 100%;
+    height: 82vh;
+    background-image: url('../../../public/assets/download.jpeg');
+    position: relative;
+
+}
+
+.allFoods-container{
+   
+    width: 80%;
+    margin: 0 auto;
+    height: 82vh;
+   
+    /* display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    justify-content: center;
+    align-items: center; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* gap: 2rem;
+    padding: 2rem; */
+    
+}
+
+.delete-popUp-container{
+  position:absolute;
+  margin: auto;
+  margin-top: -40rem;
+  margin-left: 40rem;
+  z-index: 1;
+  align-self: center;
+}
+
+
+
+  
+  .slick-slide > div {
+    margin: 20px 20px;
+  }
+  .slick-list {
+    margin: 10px 20px;
+  }

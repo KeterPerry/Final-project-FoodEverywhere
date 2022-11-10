@@ -2,8 +2,7 @@ import io from "socket.io-client";
 import { useState, useEffect } from "react";
 import Chat from "../../components/chat/Chat.js";
 import "./joiningRoom.css";
-// const socket = io.connect("http://localhost:3001");
-// console.log("this is", socket);
+
 let socket;
 function JoiningRoom() {
   const [username, setUsername] = useState("");
@@ -12,12 +11,7 @@ function JoiningRoom() {
 
   const token = localStorage.getItem("Token");
   useEffect(() => {
-    socket = io.connect(
-      "http://localhost:3000"
-      // query: {
-      //   token: token,
-      // },
-    );
+    socket = io.connect("http://localhost:3000");
   }, []);
 
   const joinRoom = (socket) => {
@@ -40,18 +34,18 @@ function JoiningRoom() {
           <h1 className="join">Join A Chat!</h1>
           <input
             type="text"
-            placeholder="John..."
+            placeholder="Enter your name..."
             onChange={(event) => {
               setUsername(event.target.value);
             }}
           />
+          <h2>Choose your topic:</h2>
           <select
             type="text"
             placeholder="Room ID..."
             onChange={handleRoom}
             value={room}
           >
-            {/* <option disabled>Choose Prefered type of food </option> */}
             <option value="Italian">Italian Food</option>
             <option value="Chinese">Chinese Food</option>
             <option value="Israeli">Israeli Food</option>

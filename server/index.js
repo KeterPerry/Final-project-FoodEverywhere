@@ -1,8 +1,7 @@
 import { app } from "./app.js";
 import "./db/mongoose.js";
 import "./models/user/user.schema.js";
-// import "./models/Chatroom";
-// import "./models/Message";
+
 import http from "http";
 import { User } from "../server/models/user/user.model.js";
 import { Message } from "../server/models/message.js";

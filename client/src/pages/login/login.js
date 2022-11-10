@@ -3,12 +3,11 @@ import userApi from "../../apis/userApi";
 import "./login.css";
 import { useHistory, Redirect } from "react-router-dom";
 import { useUser } from "../../context/User.context";
-// import Button from "../../components/button/Button";
-import { io } from "socket.io-client";
+import Button from "../../../src/components/button/button.jsx";
 
 function Login() {
   const history = useHistory();
-  const { currentUser, setCurrentUser, setToken, Login, setLogin } = useUser();
+  const { currentUser, setCurrentUser, setToken } = useUser();
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState(false);
 
@@ -19,16 +18,11 @@ function Login() {
   });
 
   console.log(form.password);
-  useEffect(
-    () => {
-      if (currentUser) {
-        setRedirect(true);
-      }
-      // setupSocket();
-    },
-    [currentUser]
-    // [socket]
-  );
+  useEffect(() => {
+    if (currentUser) {
+      setRedirect(true);
+    }
+  }, [currentUser]);
 
   const handleChange = (e) => {
     setForm((prev) => {
@@ -52,7 +46,7 @@ function Login() {
       });
       localStorage.setItem("Token", data.token);
       setError("");
-      setLogin("Logout");
+      // setLogin("Logout");
       history.push("/home");
     } catch (err) {
       console.log(err.message);
@@ -64,32 +58,6 @@ function Login() {
   if (redirect) {
     return <Redirect to="/" />;
   }
-
-  // const setupSocket = () => {
-  //   const token = localStorage.getItem("Token");
-  //   if (token && !socket) {
-  //     console.log("setupSocket");
-  //     const newSocket = io("http://localhost:4000", {
-  //       query: {
-  //         token: localStorage.getItem("Token"),
-  //       },
-  //     });
-  //     console.log(newSocket);
-  //     newSocket.connect();
-
-  //     // newSocket.on("disconnect", () => {
-  //     //   setSocket(null);
-  //     //   // setTimeout(setupSocket(), 3000);
-  //     //   console.log("disconnected");
-  //     // });
-
-  //     newSocket.on("connect", () => {
-  //       console.log("connected");
-  //     });
-
-  //     setSocket(newSocket);
-  //   }
-  // };
 
   return (
     <div className="login-container">
@@ -125,9 +93,10 @@ function Login() {
             />
           </div>
           <div className="login-button">
-            <button btntext="Login" onClick={handleSubmit}>
+            {/* <button btntext="Login" onClick={handleSubmit}>
               Login
-            </button>
+            </button> */}
+            <Button onClick={handleSubmit} buttonText="Login"></Button>
           </div>
           <div className="error">{error}</div>
         </form>

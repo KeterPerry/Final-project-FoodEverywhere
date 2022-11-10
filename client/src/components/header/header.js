@@ -1,10 +1,12 @@
-import { NavLink, useHistory, Redirect } from "react-router-dom";
+import { NavLink, useHistory, redirect } from "react-router-dom";
+// import { useHistory, Redirect } from "react-router-dom";
 import "./header.css";
 import { useUser } from "../../context/User.context.js";
 import Logo from "../logo/logo.js";
 import { Hamburger } from "./hamburgerMenu.js";
 import userApi from "../../apis/userApi.js";
-import { useEffect } from "react";
+
+import { useState } from "react";
 
 export default function Header() {
   const {
@@ -17,7 +19,11 @@ export default function Header() {
     redirect,
     setRedirect,
   } = useUser();
-  // const history = useHistory();
+  const [open, setOpen] = useState(false);
+  // const navigate = useNavigate();
+  const history = useHistory();
+
+  console.log(currentUser);
 
   // useEffect(() => {
   //   if (currentUser) {
@@ -26,19 +32,23 @@ export default function Header() {
   // }, [currentUser]);
 
   const handleClick = () => {
-    // if (Login === "Logout")
-    //   console.log("brrrrr");
-    setLogin("Login");
-    // history.push("/");
+    // if (Login === "Logout") {}
+
+    // history.push("/login");
+    // return <Redirect to="/login" />;
+    // console.log(redirect);
 
     // if (redirect) {
-    //   return <Redirect to="/" />;
+    //   return <Redirect to="/login" />;
+    //   setLogin("Login");
+    //   console.log("login");
     // }
 
     logOut();
   };
 
   const logOut = async () => {
+    console.log("logout-client");
     try {
       const options = {
         headers: { Authorization: token },
@@ -98,10 +108,30 @@ export default function Header() {
               Register
             </NavLink>
           </li>
+          <li className="link" style={{ color: "brown" }}>
+            {currentUser && "Welcome, " + currentUser.name}
+          </li>
           <li>
-            <NavLink to="/login" onClick={handleClick} className="link">
-              {Login}
-            </NavLink>
+            {currentUser ? (
+              <NavLink
+                onClick={() => {
+                  logOut();
+                }}
+                to="/login"
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <NavLink to="/login" className="link">
+                <div className="login-link">
+                  <img
+                    style={{ width: "1.5rem", height: "1.5rem" }}
+                    src="/user.png"
+                  ></img>
+                  <span>Login</span>
+                </div>
+              </NavLink>
+            )}
           </li>
         </ul>
       </div>

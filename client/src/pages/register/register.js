@@ -3,7 +3,7 @@ import userApi from "../../apis/userApi";
 import "./register.css";
 import { useHistory, Redirect } from "react-router-dom";
 import { useUser } from "../../context/User.context";
-
+import Button from "../../../src/components/button/button.jsx";
 function Register() {
   const history = useHistory();
   const { currentUser, setCurrentUser, setToken } = useUser();
@@ -127,25 +127,8 @@ function Register() {
               required
             />
           </div>
-          {/* <label htmlFor="savedLanguage" className="form__label">
-          Language{" "}
-        </label>
-        <div className="language">
-          <select
-            onChange={handleChange}
-            value={form.savedLanguage}
-            id="savedLanguage"
-            name="language"
-          >
-            <option disabled>Choose Prefered Language</option>
-            <option value="Hebrew">Hebrew</option>
-            <option value="Arabic">Arabic</option>
-            <option value="English">English</option>
-            <option value="Russian">Russian</option>
-          </select> */}
-          <div className="register-button">
-            <button onClick={handleSubmit}>Register</button>
-          </div>
+          <Button onClick={handleSubmit} buttonText="Register"></Button>
+
           <div className="error">{error}</div>
         </form>
       </div>

@@ -3,6 +3,7 @@
 background-image: url("https://ychef.files.bbci.co.uk/1600x900/p065jzb2.webp");
 width: 100%;
 height: 82vh;
+position: relative;
 
 }
 .side-logo {
@@ -21,6 +22,18 @@ height: 82vh;
     z-index: 1; 
 
 }
+
+
+.share-learn{
+position: absolute;
+display:flex;
+flex-direction: column;
+gap:1rem;
+margin-left: 10rem;
+margin-top: 2rem;
+
+}
+
 @media(max-width: 768px){
     .home-pic {
         background-image: url("https://ychef.files.bbci.co.uk/1600x900/p065jzb2.webp") cover center  no-repeat;

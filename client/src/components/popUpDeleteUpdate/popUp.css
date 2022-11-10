@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+.popUp-container {
+    font-size: 1.5rem;
+    font-weight:bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* color: rgba(121, 40, 40, 0.318); */
+    background-color: white;
+    width: 50rem;
+    height: 15rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 0.5rem;
+    /* opacity: 0.7; */
+  }
+
+  .buttons-wrapper{
+   display:flex;
+   gap:2rem;
+   align-self: center;
+   /* margin: auto; */
+ 
+  }
+
+  .buttons-wrapper >*{
+   height: 3rem;
+   font-size: 1.5rem;
+
+
+  }
+
+  /* <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Bogdan Rosu - Flaticon</a> */
+  /* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */

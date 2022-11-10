@@ -12,6 +12,9 @@ export function UserProvider({ children }) {
   const [chatrooms, setChatrooms] = useState([]);
   const [socket, setSocket] = useState(null);
   const [Login, setLogin] = useState("Login");
+  const [allFoodsData, setAllFoodsData] = useState([]);
+  const [popUp, setpopUp] = useState(false);
+  const [windowUpdateDetails, setWindowUpdateDetails] = useState(false);
 
   const value = {
     currentUser,
@@ -24,6 +27,12 @@ export function UserProvider({ children }) {
     setSocket,
     Login,
     setLogin,
+    allFoodsData,
+    setAllFoodsData,
+    popUp,
+    setpopUp,
+    windowUpdateDetails,
+    setWindowUpdateDetails,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

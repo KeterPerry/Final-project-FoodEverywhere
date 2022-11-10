@@ -23,6 +23,7 @@
 .register{
     height:10%;
     padding: 2rem;
+    font-weight: bold;
     
 }
 
@@ -68,21 +69,6 @@
 }
 #confirm{
     margin-right: 10rem;
-}
-
-.register-button {
-    align-self: center;
-}
-.button {
-    text-align: center;
-    background-color: green;
-    padding: 0.5em;
-    border-radius: 5%;
-    color: white;
-}
-
-.button:hover {
-    background-color: rgb(7, 54, 7);
 }
 
 ul li {

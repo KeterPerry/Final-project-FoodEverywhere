@@ -2,6 +2,7 @@ import React from "react";
 import "./contact.css";
 import { useState } from "react";
 import userApi from "../../apis/userApi";
+import Button from "../../components/button/button";
 
 export function Contact() {
   const [submitMsg, setSubmitMsg] = useState("");
@@ -106,9 +107,15 @@ export function Contact() {
               </li>
 
               <li className="submit-btn-container">
-                <button onClick={handleSubmit} className="form-btn">
-                  submit
-                </button>
+                {/* <button onClick={handleSubmit} className="form-btn">
+                  Submit
+                </button> */}
+                <div
+                  style={{ alignSelf: "center" }}
+                  className="submit-btn-container-div"
+                >
+                  <Button onClick={handleSubmit} buttonText="Submit"></Button>
+                </div>
               </li>
             </ul>
             <br></br>
