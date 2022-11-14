@@ -8,9 +8,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useUser } from "../../context/User.context.js";
 import PopUp from "../../components/popUpDeleteUpdate/popUp.js";
+import UpdateWindow from "../../components/updateWindow/updateWindow.js";
 
 export default function Foods() {
-  const { allFoodsData, setAllFoodsData, popUp, setpopUp } = useUser();
+  const { allFoodsData, setAllFoodsData, popUp, windowUpdateDetails } =
+    useUser();
+  const [currentId, setCurrentId] = useState("");
+  const [currentItem, setCurrentItem] = useState({});
+
   console.log("hey");
   console.log(allFoodsData);
 
@@ -25,7 +30,14 @@ export default function Foods() {
       }
     }
     fetchD();
-  }, []);
+  }, [allFoodsData]);
+
+  const handleId = (id) => {
+    setCurrentId(id);
+  };
+  const handleItem = (theWholeItem) => {
+    setCurrentItem(theWholeItem);
+  };
 
   const settings = {
     dots: true,
@@ -75,6 +87,9 @@ export default function Foods() {
                   foodName={item.itemsName}
                   image={item.image}
                   description={item.description}
+                  handleId={handleId}
+                  theWholeItem={item}
+                  handleItem={handleItem}
                 />
               );
             })}
@@ -84,7 +99,15 @@ export default function Foods() {
 
       {popUp && (
         <div className="delete-popUp-container">
-          <PopUp optionName="delete"></PopUp>
+          <PopUp currentId={currentId}></PopUp>
+        </div>
+      )}
+      {windowUpdateDetails && (
+        <div className="updateWindow">
+          <UpdateWindow
+            updateId={currentId}
+            currentItem={currentItem}
+          ></UpdateWindow>
         </div>
       )}
     </>

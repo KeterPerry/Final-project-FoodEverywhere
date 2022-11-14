@@ -34,6 +34,16 @@
   align-self: center;
 }
 
+.updateWindow{
+  position:absolute;
+  margin: auto;
+  margin-top: -40rem;
+  margin-left: 40rem;
+  z-index: 1;
+  align-self: center;
+
+}
+
 
 
   

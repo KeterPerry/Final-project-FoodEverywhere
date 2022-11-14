@@ -32,7 +32,7 @@ function Home() {
               fontSize: "1rem",
             }}
           >
-            Share your interesting food with us!
+            Share your interesting food with us! <br></br>&gt; &gt;
           </Button>
 
           <Button
@@ -49,7 +49,8 @@ function Home() {
               boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
             }}
           >
-            Learn about different foods shared info from aroun the globe!
+            Learn about different foods shared info from aroun the globe!{" "}
+            <br></br> &gt; &gt;
           </Button>
         </div>
 

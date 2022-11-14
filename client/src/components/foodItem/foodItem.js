@@ -4,19 +4,35 @@ import userApi from "../../apis/userApi.js";
 import { useUser } from "../../context/User.context.js";
 import PopUp from "../popUpDeleteUpdate/popUp.js";
 
-export default function FoodItem({ foodName, image, description, id }) {
-  const { allFoodsData, setAllFoodsData, popUp, setpopUp } = useUser();
+export default function FoodItem({
+  foodName,
+  image,
+  description,
+  id,
+  handleId,
+  theWholeItem,
+  handleItem,
+}) {
+  const {
+    allFoodsData,
+    setAllFoodsData,
+    popUp,
+    setpopUp,
+    optionName,
+    setoptionName,
+  } = useUser();
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     setpopUp(true);
+    handleId(id);
+    setoptionName("delete");
+  };
 
-    // const dataToBeDeleted = await userApi().delete(
-    //   `./interestingFood/deletefood/${id}`
-    // );
-    // console.log(dataToBeDeleted.data.data);
-    // setAllFoodsData((prev) => {
-    //   return prev.filter((food) => food._id !== id, console.log(allFoodsData));
-    // });
+  const handleUpdate = () => {
+    console.log("update");
+    handleItem(theWholeItem);
+    setoptionName("update");
+    setpopUp(true);
   };
 
   return (
@@ -27,15 +43,14 @@ export default function FoodItem({ foodName, image, description, id }) {
         <p>{description}</p>
         <br></br>
         <div className="update-delete-buttons">
-          <button className="update">Update</button>
+          <button className="update" onClick={handleUpdate}>
+            Update{" "}
+          </button>
           <button className="delete" onClick={handleDelete}>
             Delete
           </button>
         </div>
       </div>
-      {/* <div style={{ display: "none" }} className="pop">
-        <PopUp idFromItem={id}></PopUp>;
-      </div> */}
     </>
   );
 }

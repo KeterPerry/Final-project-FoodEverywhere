@@ -34,8 +34,14 @@ function Chat({ socket, username, room }) {
 
   return (
     <div className="chat-window">
-      <div className="chat-header">
-        <p>You are in {room} food room!</p>
+      <div
+        className="chat-header"
+        style={{
+          textAlign: "center",
+          paddingTop: "5px",
+        }}
+      >
+        <h1>You are in {room} food room!</h1>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">

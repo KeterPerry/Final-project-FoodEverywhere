@@ -2,6 +2,12 @@
 .room-container{
     width:100%;
     height: 82vh;
+    background-image: url('../../../public/people-collaborating-or-sharing-a-message.png');
+     padding:10px;
+    background-color: thistle;
+    opacity: 0.8
+    
+
 }
 .join{
     width:100%;
@@ -19,6 +25,11 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap:6rem;
+    gap:4rem;
+    background-color: rgb(199, 170, 202);
+    background-color: rgba(207, 203, 196, 0.512);
+
+   
+
 
 }

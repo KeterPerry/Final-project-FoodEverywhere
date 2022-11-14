@@ -81,7 +81,7 @@ function Register() {
               type="email"
               id="email"
               className="form__input"
-              placeholder="Email"
+              placeholder=" Email"
               required
             />
           </div>
@@ -95,7 +95,7 @@ function Register() {
               className="form__input"
               type="password"
               id="password"
-              placeholder="Password"
+              placeholder=" Password"
               required
             />
           </div>
@@ -109,7 +109,7 @@ function Register() {
               className="form__input"
               type="password"
               id="confirmPassword"
-              placeholder="Confirm Password"
+              placeholder=" Confirm Password"
               required
             />
           </div>
@@ -123,7 +123,7 @@ function Register() {
               className="form__input"
               type="text"
               id="name"
-              placeholder="Name "
+              placeholder=" Name "
               required
             />
           </div>

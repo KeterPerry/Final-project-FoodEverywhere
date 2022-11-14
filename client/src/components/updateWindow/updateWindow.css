@@ -5,9 +5,11 @@ width: 100%;
 height: 82vh;
 } */
 
-
+/* .update{
+  backround
+} */
 .food-details{
-    width:30%;
+    width:100%;
     height: 53vh;
     margin: auto;
     margin-bottom: 1.5rem;
@@ -27,6 +29,7 @@ height: 82vh;
     width: 90%;
   
 }
+
 
 
 @media (max-width: 768px){

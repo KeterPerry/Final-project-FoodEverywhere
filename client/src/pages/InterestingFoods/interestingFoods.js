@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import "./interestingFoods.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -17,6 +17,7 @@ function InterestingFoods() {
     image: "",
     description: "",
   });
+  const imageRef = useRef();
   console.log(interestingFood);
 
   const handleShare = async (e) => {
@@ -27,6 +28,7 @@ function InterestingFoods() {
         interestingFood
       );
       console.log(data);
+      console.log(interestingFood);
       setInterestingFood({ itemsName: "", image: "", description: "" });
     } catch (error) {
       console.log(error);
@@ -39,8 +41,9 @@ function InterestingFoods() {
   const handleChange = (e) => {
     if (e.target.type === "file") {
       setInterestingFood((prev) => {
-        console.log(e.target.id);
-        return { ...prev, [e.target.id]: e.target.files[0].name };
+        console.log(e.target);
+
+        return { ...prev, image: e.target.files[0] };
       });
     }
 
@@ -67,10 +70,14 @@ function InterestingFoods() {
 
         <div className="arrow bounce"></div>
 
-        <form onSubmit={handleShare}>
-          <Box className="food-details">
+        <Box className="food-details">
+          <div className="image-container">
+            <img src={interestingFood.image} className="Image-uploaded"></img>
+          </div>
+          <form onSubmit={handleShare} className="form-interesting">
             <ThemeProvider theme={theme}>
               <TextField
+                style={{ width: "30rem" }}
                 id="itemsName"
                 label="FoodName"
                 variant="outlined"
@@ -79,38 +86,10 @@ function InterestingFoods() {
                 onChange={handleChange}
               />
               <div className="imageUpload">
-                {/* <TextField
-                className="image-only"
-                label="Image"
-                variant="outlined"
-                style={{ width: "70%" }}
-                color="error"
-                onChange={handleChange}
-              /> */}
-                {/* 
-              <Button
-                className="upload-only"
-                variant="contained"
-                component="label"
-                style={{ width: "30%", height: "100%" }}
-                color="error"
-              >
-                Upload
-                <input
-                  hidden
-                  accept="image/*"
-                  multiple
-                  type="file"
-                  name="file"
-                  id="image"
-                  value={interestingFood.image}
-                />
-              </Button> */}
-
                 <TextField
                   id="image"
                   label="Image Upload"
-                  filename="image"
+                  name="image"
                   type="file"
                   fullWidth
                   margin="normal"
@@ -120,6 +99,7 @@ function InterestingFoods() {
                   variant="outlined"
                   color="error"
                   onChange={handleChange}
+                  ref={imageRef}
                 />
               </div>
               <TextareaAutosize
@@ -142,8 +122,8 @@ function InterestingFoods() {
 
               {/* <Button variant="outlined">Share</Button> */}
             </ThemeProvider>
-          </Box>
-        </form>
+          </form>
+        </Box>
       </div>
     </div>
   );

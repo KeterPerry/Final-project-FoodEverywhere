@@ -29,14 +29,8 @@ export function Question({ question }) {
     <div className="wrapper">
       <div className="questionContainer">
         <div className="image">
-          <img
-            className="img"
-            alt="#"
-            //   src="https://www.pngkey.com/maxpic/u2q8w7q8o0t4t4o0/"
-            src={question.image}
-          ></img>
+          <img className="img" alt="#" src={question.image}></img>
         </div>
-        {/* {`./assets/dice-${this.props.index}.png`} */}
 
         <h2 className="question">{question.question}</h2>
         <div className="answers">

@@ -74,7 +74,7 @@ function Login() {
               type="email"
               id="email"
               className="form__input"
-              placeholder="Email"
+              placeholder=" Email"
               required
             />
           </div>
@@ -88,7 +88,7 @@ function Login() {
               className="form__input"
               type="password"
               id="password"
-              placeholder="Password"
+              placeholder=" Password"
               required
             />
           </div>

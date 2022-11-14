@@ -15,6 +15,8 @@ export function UserProvider({ children }) {
   const [allFoodsData, setAllFoodsData] = useState([]);
   const [popUp, setpopUp] = useState(false);
   const [windowUpdateDetails, setWindowUpdateDetails] = useState(false);
+  const [optionName, setoptionName] = useState("");
+  // const [setCurrentItem, currentItem] = useState(null);
 
   const value = {
     currentUser,
@@ -33,6 +35,10 @@ export function UserProvider({ children }) {
     setpopUp,
     windowUpdateDetails,
     setWindowUpdateDetails,
+    optionName,
+    setoptionName,
+    // setCurrentItem,
+    // currentItem,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

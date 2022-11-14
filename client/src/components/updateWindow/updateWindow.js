@@ -9,31 +9,36 @@ import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { sizing } from "@mui/system";
 import userApi from "../../apis/userApi.js";
+import { useUser } from "../../context/User.context.js";
 
-function UpdateWindow({ idFromItem }) {
+function UpdateWindow({ updateId, currentItem }) {
+  const { allFoodsData, setAllFoodsData, setWindowUpdateDetails } = useUser();
   const [foodToUpdate, setfoodToUpdate] = useState({
-    itemsName: "",
-    image: "",
-    description: "",
+    itemsName: currentItem.itemsName,
+    image: currentItem.image,
+    description: currentItem.description,
   });
   console.log(foodToUpdate);
 
   const handleUpdate = async (e) => {
+    console.log("handleupdate");
     try {
       e.preventDefault();
       const data = await userApi().patch(
-        `/interestingFood/editfood/${idFromItem}`,
+        `/interestingFood/editfood/${currentItem._id}`,
         foodToUpdate
       );
       console.log(data);
-      setallFoodsData((prev) => {
+      setAllFoodsData((prev) => {
         return prev.map((food) => {
-          if (food.id === idFromItem) return data;
+          if (food.id === currentItem._id) return data;
           else return food;
         });
       });
+      alert("Your food item has been updated!");
+      setWindowUpdateDetails(false);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
@@ -56,10 +61,12 @@ function UpdateWindow({ idFromItem }) {
       fontSize: 25,
     },
   });
+  const handleClose = () => {
+    setWindowUpdateDetails(false);
+  };
 
   return (
     <div className="update">
-      <img src="./uploads/boy.png"></img>
       <form onSubmit={handleUpdate}>
         <Box className="food-details">
           <ThemeProvider theme={theme}>
@@ -67,7 +74,7 @@ function UpdateWindow({ idFromItem }) {
               id="itemsName"
               label="FoodName"
               variant="outlined"
-              value={interestingFood.itemsName}
+              value={foodToUpdate.itemsName}
               color="error"
               onChange={handleChange}
             />
@@ -91,7 +98,7 @@ function UpdateWindow({ idFromItem }) {
               id="description"
               aria-label="empty textarea"
               placeholder="Write your description here."
-              value={interestingFood.description}
+              value={foodToUpdate.description}
               onChange={handleChange}
               minRows={6}
             />
@@ -108,6 +115,7 @@ function UpdateWindow({ idFromItem }) {
             {/* <Button variant="outlined">Share</Button> */}
           </ThemeProvider>
         </Box>
+        <button onClick={handleClose}>X</button>
       </form>
     </div>
   );

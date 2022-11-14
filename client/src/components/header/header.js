@@ -20,35 +20,11 @@ export default function Header() {
     setRedirect,
   } = useUser();
   const [open, setOpen] = useState(false);
-  // const navigate = useNavigate();
   const history = useHistory();
 
   console.log(currentUser);
 
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     setRedirect(true);
-  //   }
-  // }, [currentUser]);
-
-  const handleClick = () => {
-    // if (Login === "Logout") {}
-
-    // history.push("/login");
-    // return <Redirect to="/login" />;
-    // console.log(redirect);
-
-    // if (redirect) {
-    //   return <Redirect to="/login" />;
-    //   setLogin("Login");
-    //   console.log("login");
-    // }
-
-    logOut();
-  };
-
   const logOut = async () => {
-    console.log("logout-client");
     try {
       const options = {
         headers: { Authorization: token },
@@ -60,6 +36,7 @@ export default function Header() {
       setCurrentUser(null);
       setToken(null);
       localStorage.removeItem("Token");
+      history.push("/login");
     }
   };
 

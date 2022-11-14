@@ -24,8 +24,6 @@ export default function Game({}) {
       try {
         const { data } = await userApi().get("/questions/getQuestions");
         console.log(data);
-        console.log(data[0].image);
-        console.log(data[0].answers.a);
         setQuestions(data);
         setIsSpinner(false);
       } catch (err) {
