@@ -1,14 +1,5 @@
- /* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-.intersting-foods {
-background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/39/Supreme_pizza.png');
-width: 100%;
-height: 82vh;
-} */
 
-/* .update{
-  backround
-} */
-.food-details{
+.food-details-update{
     width:100%;
     height: 53vh;
     margin: auto;
@@ -25,7 +16,7 @@ height: 82vh;
 
 }
 
-.food-details >*{
+.food-details-update >*{
     width: 90%;
   
 }
@@ -34,11 +25,11 @@ height: 82vh;
 
 @media (max-width: 768px){
 
-    .food-details{
+    .food-details-update{
         width:70%;
         height:45vh
     }
-    .food-details >*{
+    .food-details-update >*{
         height: 10vh;
     }
 

@@ -10,7 +10,6 @@ const foodItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   // image: {
   //   data: Buffer,
   //   contentType: String,
@@ -18,7 +17,7 @@ const foodItemSchema = new mongoose.Schema({
   description: {
     type: String,
     // required: true,
-    // minLength: 10,
+    maxLength: 50,
   },
 });
 

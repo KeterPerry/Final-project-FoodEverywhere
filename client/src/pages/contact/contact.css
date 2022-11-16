@@ -41,8 +41,8 @@ ul li {
     flex-direction: column;
 }
 
-input,
-textarea {
+.row-body input,
+.row-body textarea {
     border-radius: 3%;
     letter-spacing: 1.5px;
     height: 3rem;
@@ -55,7 +55,7 @@ textarea {
 }
 
 
-textarea {
+.row-body textarea {
     height: 10rem;
     width: 30rem;
 }

@@ -68,7 +68,7 @@ function UpdateWindow({ updateId, currentItem }) {
   return (
     <div className="update">
       <form onSubmit={handleUpdate}>
-        <Box className="food-details">
+        <Box className="food-details-update">
           <ThemeProvider theme={theme}>
             <TextField
               id="itemsName"

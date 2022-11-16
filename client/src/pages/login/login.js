@@ -64,7 +64,7 @@ function Login() {
       <div className="login">
         <h1 className="login-title">Login</h1>
         <form className="form1-body" onSubmit={handleSubmit}>
-          <label htmlFor="email" className="form__label">
+          <label htmlFor="email" className="form1__label">
             Email
           </label>
           <div className="email">
@@ -78,7 +78,7 @@ function Login() {
               required
             />
           </div>
-          <label htmlFor="password" className="form__label">
+          <label htmlFor="password" className="form1__label">
             Password
           </label>
           <div className="password">

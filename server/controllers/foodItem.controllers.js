@@ -6,7 +6,7 @@ import fs from "fs";
 //     const newFoodItem = FoodItem({
 //       itemsName: req.body.itemsName,
 //       image: {
-//         data: fs.readFileSync("uploads/" + req.file.filename),
+//         data: fs.readFileSync("./server/uploads/" + req.file.filename),
 //         contentType: "image/png",
 //       },
 //       description: req.body.description,

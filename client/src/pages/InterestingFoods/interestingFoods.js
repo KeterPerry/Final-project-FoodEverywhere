@@ -43,7 +43,7 @@ function InterestingFoods() {
       setInterestingFood((prev) => {
         console.log(e.target);
 
-        return { ...prev, image: e.target.files[0] };
+        return { ...prev, image: e.target.files[0].name };
       });
     }
 
@@ -54,7 +54,7 @@ function InterestingFoods() {
 
   const theme = createTheme({
     typography: {
-      fontSize: 25,
+      fontSize: 21,
     },
   });
 
@@ -77,7 +77,7 @@ function InterestingFoods() {
           <form onSubmit={handleShare} className="form-interesting">
             <ThemeProvider theme={theme}>
               <TextField
-                style={{ width: "30rem" }}
+                sx={{ width: "22rem" }}
                 id="itemsName"
                 label="FoodName"
                 variant="outlined"
@@ -87,6 +87,7 @@ function InterestingFoods() {
               />
               <div className="imageUpload">
                 <TextField
+                  sx={{ width: "22rem" }}
                   id="image"
                   label="Image Upload"
                   name="image"
@@ -105,7 +106,7 @@ function InterestingFoods() {
               <TextareaAutosize
                 id="description"
                 aria-label="empty textarea"
-                placeholder="Write your description here."
+                placeholder=" Write your description here."
                 value={interestingFood.description}
                 onChange={handleChange}
                 minRows={6}
