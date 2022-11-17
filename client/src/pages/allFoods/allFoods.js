@@ -30,7 +30,7 @@ export default function Foods() {
       }
     }
     fetchD();
-  }, [allFoodsData]);
+  }, []);
 
   const handleId = (id) => {
     setCurrentId(id);
