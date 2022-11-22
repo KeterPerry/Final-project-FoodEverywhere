@@ -106,7 +106,7 @@ height: 82vh;
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 850px){
 
     /* .imageUpload{
         display: flex;
@@ -116,7 +116,7 @@ height: 82vh;
     .food-details{
       display: flex;
       flex-direction: column;
-      gap:1rem; 
+      gap:2rem; 
       height:53vh;
       width: 70%;
     }

@@ -6,26 +6,9 @@ import {
   editFood,
   deleteFood,
 } from "../controllers/foodItem.controllers.js";
-import multer from "multer";
+import { upload } from "../middleware/multer/multer.js";
 
 const foodRouter = express.Router();
-
-///////////////////multer
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./client/public/uploads/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-// const upload = multer({
-//   dest: "uploads",
-// });
-
-const upload = multer({ storage: storage });
 
 ////////////////////////////////////////////////
 
@@ -36,3 +19,5 @@ foodRouter.patch("/editfood/:id", editFood);
 foodRouter.delete("/deletefood/:id", deleteFood);
 
 export { foodRouter };
+
+// ./client/public/uploads/

@@ -31,6 +31,9 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+  score: {
+    type: Number,
+  },
 });
 
 export { userSchema };

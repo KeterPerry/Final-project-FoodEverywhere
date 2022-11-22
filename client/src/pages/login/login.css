@@ -55,16 +55,6 @@
 }
 
 
-button {
-    text-align: center;
-    background-color: rgb(7, 54, 7);
-    border-radius: 14px;
-    color: white;
-}
-button:hover {
-    background-color: rgba(0, 128, 0, 0.211);
-}
-
 
 .form1-body input{
     border-radius: 3%;

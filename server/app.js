@@ -13,7 +13,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicPath = path.join(__dirname, "../client/build");
 
 app.use(express.static(publicPath));
-console.log(publicPath);
 app.use(express.json());
 app.use(
   express.urlencoded({

@@ -86,3 +86,13 @@ export const editProfile = async (req, res) => {
     res.status(400).send(e);
   }
 };
+export const updateScore = async (req, res) => {
+  try {
+    const userScore = await User.findById(_id);
+    userScore.score += req.body;
+    await req.user.save();
+    res.status(200).send("Score has been updated succesfully");
+  } catch (e) {
+    res.status(400).send({ error: e.message });
+  }
+};

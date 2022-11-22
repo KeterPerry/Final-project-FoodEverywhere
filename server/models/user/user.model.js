@@ -31,7 +31,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
   if (!user) throw new Error("Something went wrong");
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) throw new Error("Something went wrong");
-
   return user;
 };
 
