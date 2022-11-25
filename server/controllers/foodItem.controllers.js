@@ -1,22 +1,22 @@
 import { FoodItem } from "../models/foodItem/foodItem.model.js";
 import fs from "fs";
 
-export const addFoodItem = async (req, res) => {
-  try {
-    const newFoodItem = FoodItem({
-      itemsName: req.body.itemsName,
-      image: {
-        data: fs.readFileSync("./server/uploads/" + req.file.filename),
-        contentType: "image/png",
-      },
-      description: req.body.description,
-    });
-    const savedFoodItem = await newFoodItem.save();
-    res.status(200).send({ data: savedFoodItem });
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-};
+// export const addFoodItem = async (req, res) => {
+//   try {
+//     const newFoodItem = FoodItem({
+//       itemsName: req.body.itemsName,
+//       image: {
+//         data: fs.readFileSync("./server/uploads/" + req.file.filename),
+//         contentType: "image/png",
+//       },
+//       description: req.body.description,
+//     });
+//     const savedFoodItem = await newFoodItem.save();
+//     res.status(200).send({ data: savedFoodItem });
+//   } catch (error) {
+//     res.status(400).send(error.message);
+//   }
+// };
 
 export const getSpecificfood = async (req, res) => {
   try {
@@ -81,18 +81,18 @@ export const editFood = async (req, res) => {
 };
 /////////////////////////////////////////
 
-// export const addFoodItem = async (req, res) => {
-//   try {
-//     console.log("bla");
-//     console.log(req.file);
-//     const newFoodItem = new FoodItem({
-//       itemsName: req.body.itemsName,
-//       image: req.file.originalname,
-//       description: req.body.description,
-//     });
-//     const savedFoodItem = await newFoodItem.save();
-//     res.status(200).send({ data: savedFoodItem });
-//   } catch (error) {
-//     res.status(400).send(error.message);
-//   }
-// };
+export const addFoodItem = async (req, res) => {
+  try {
+    console.log("bla");
+    console.log(req.file);
+    const newFoodItem = new FoodItem({
+      itemsName: req.body.itemsName,
+      image: req.file.originalname,
+      description: req.body.description,
+    });
+    const savedFoodItem = await newFoodItem.save();
+    res.status(200).send({ data: savedFoodItem });
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};

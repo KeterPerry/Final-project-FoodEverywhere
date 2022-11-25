@@ -6,14 +6,14 @@ const foodItemSchema = new mongoose.Schema({
     required: true,
     minLength: 2,
   },
-  // image: {
-  //   type: String,
-  //   required: true,
-  // },
   image: {
-    data: Buffer,
-    contentType: String,
+    type: String,
+    required: true,
   },
+  // image: {
+  //   data: Buffer,
+  //   contentType: String,
+  // },
   description: {
     type: String,
     // required: true,

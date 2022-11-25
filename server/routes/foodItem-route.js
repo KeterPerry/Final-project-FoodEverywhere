@@ -19,5 +19,3 @@ foodRouter.patch("/editfood/:id", editFood);
 foodRouter.delete("/deletefood/:id", deleteFood);
 
 export { foodRouter };
-
-// ./client/public/uploads/

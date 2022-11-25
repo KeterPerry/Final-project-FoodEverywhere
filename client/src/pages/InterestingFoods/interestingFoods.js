@@ -33,7 +33,7 @@ function InterestingFoods() {
 
     try {
       const data = await userApi().post("/interestingFood/add", formData, {
-        headers: { "content-type": "multipart/form-data", accept: "" },
+        headers: { "content-type": "multipart/form-data" },
       });
       console.log(data);
       // setInterestingFood({ itemsName: "", image: "", description: "" });
@@ -48,7 +48,8 @@ function InterestingFoods() {
   };
 
   const handleImageChange = (e) => {
-    setUplaodImage(e.target.files[0].name);
+    debugger;
+    setUplaodImage(e.target.files[0]);
   };
   // const handleChange = (e) => {
   //   if (e.target.type === "file") {
