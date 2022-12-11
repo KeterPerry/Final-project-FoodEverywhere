@@ -8,6 +8,7 @@ import {
   editProfile,
   loginUser,
   updateScore,
+  getAllUsers,
 } from "../controllers/user.controllers.js";
 import { auth } from "../middleware/auth/auth.js";
 
@@ -19,6 +20,7 @@ usersRouter.post("/logout", auth, logoutUser);
 usersRouter.post("/logoutAll", logoutAll);
 
 usersRouter.get("/profile", auth, getUserProfile);
+usersRouter.get("/getUsers", getAllUsers);
 usersRouter.patch("/editProfile", auth, editProfile);
 usersRouter.patch("/editScore", auth, updateScore);
 usersRouter.delete("/deleteUser", auth, deleteUser);

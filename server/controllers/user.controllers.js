@@ -6,7 +6,7 @@ export const signUpUser = async (req, res) => {
     const newUser = new User(req.body);
     await newUser.save();
     const token = await newUser.generateAuthToken();
-    // sendWelcomeMessage(newUser.email, newUser.name);
+
     res.status(200).send({ newUser, token });
   } catch (error) {
     res.status(400).send(error.message);
@@ -54,7 +54,7 @@ export const getUserProfile = async (req, res) => {
   try {
     res.status(200).send(req.user);
   } catch {
-    res.status(400).send(userFound);
+    res.status(400).send("userFound");
   }
 };
 
@@ -88,11 +88,21 @@ export const editProfile = async (req, res) => {
 };
 export const updateScore = async (req, res) => {
   try {
-    const userScore = await User.findById(_id);
-    userScore.score += req.body;
-    await req.user.save();
-    res.status(200).send("Score has been updated succesfully");
+    console.log(req.user);
+    const user = req.user;
+    user.score = req.body.score + user.score;
+    await user.save();
+    res.status(200).send(user);
   } catch (e) {
     res.status(400).send({ error: e.message });
+  }
+};
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).send(users);
+  } catch (err) {
+    console.log(err);
   }
 };

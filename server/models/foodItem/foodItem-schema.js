@@ -17,7 +17,12 @@ const foodItemSchema = new mongoose.Schema({
   description: {
     type: String,
     // required: true,
-    maxLength: 50,
+    // maxLength: 70,
+  },
+  user: {
+    type: mongoose.Types.ObjectId,
+    ref: "users",
+    required: true,
   },
 });
 

@@ -1,25 +1,12 @@
-import { NavLink, useHistory, redirect } from "react-router-dom";
-// import { useHistory, Redirect } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./header.css";
 import { useUser } from "../../context/User.context.js";
 import Logo from "../logo/logo.js";
 import { Hamburger } from "./hamburgerMenu.js";
 import userApi from "../../apis/userApi.js";
 
-import { useState } from "react";
-
 export default function Header() {
-  const {
-    Login,
-    setLogin,
-    token,
-    setToken,
-    setCurrentUser,
-    currentUser,
-    redirect,
-    setRedirect,
-  } = useUser();
-  const [open, setOpen] = useState(false);
+  const { token, setToken, setCurrentUser, currentUser } = useUser();
   const history = useHistory();
 
   console.log(currentUser);
@@ -36,6 +23,7 @@ export default function Header() {
       setCurrentUser(null);
       setToken(null);
       localStorage.removeItem("Token");
+      localStorage.removeItem("User");
       history.push("/login");
     }
   };
@@ -59,8 +47,8 @@ export default function Header() {
           </li>
           <li>
             {" "}
-            <NavLink to="/games" className="link">
-              Games
+            <NavLink to="/quiz" className="link">
+              Quiz
             </NavLink>
           </li>
           <li>

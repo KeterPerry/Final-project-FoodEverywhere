@@ -1,19 +1,20 @@
 import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema({
-  chatroom: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: "Chatroom is required!",
-    ref: "Chatroom",
+  room: {
+    type: "string",
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: "Chatroom is required!",
-    ref: "User",
+    ref: "users",
   },
   message: {
     type: String,
     required: "Message is required!",
+  },
+  time: {
+    type: String,
   },
 });
 

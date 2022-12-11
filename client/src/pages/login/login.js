@@ -45,6 +45,7 @@ function Login() {
         password: "",
       });
       localStorage.setItem("Token", data.token);
+      localStorage.setItem("User", JSON.stringify(data.user));
       setError("");
       // setLogin("Logout");
       history.push("/home");

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./interestingFoods.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -8,35 +8,44 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Button from "@mui/material/Button";
 import userApi from "../../apis/userApi.js";
 import { sizing } from "@mui/system";
+import { useUser } from "../../context/User.context.js";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function InterestingFoods() {
-  // const [interestingFood, setInterestingFood] = useState({
-  //   itemsName: "",
-  //   image: "",
-  //   description: "",
-  // });
   const [itemsName, setItemsName] = useState("");
   const [image, setUplaodImage] = useState("");
   const [description, setDescription] = useState("");
+  const { currentUser, setCurrentUser } = useUser();
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("User");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setCurrentUser(foundUser);
+    }
+  }, []);
+
+  console.log(currentUser);
   const handleShare = async (e) => {
+    console.log("Share");
     e.preventDefault();
 
     const formData = new FormData();
+    formData.append("user", currentUser._id);
     formData.append("description", description);
     formData.append("image", image);
     formData.append("itemsName", itemsName);
-    setItemsName("");
-    setDescription("");
+    console.log(formData.user);
 
     try {
       const data = await userApi().post("/interestingFood/add", formData, {
         headers: { "content-type": "multipart/form-data" },
       });
       console.log(data);
-      // setInterestingFood({ itemsName: "", image: "", description: "" });
+      setItemsName("");
+      setUplaodImage("");
+      setDescription("");
     } catch (error) {
       console.log(error);
     }
@@ -48,21 +57,9 @@ function InterestingFoods() {
   };
 
   const handleImageChange = (e) => {
-    debugger;
     setUplaodImage(e.target.files[0]);
+    console.log(e.target.files[0]);
   };
-  // const handleChange = (e) => {
-  //   if (e.target.type === "file") {
-  //     setInterestingFood((prev) => {
-  //       console.log(e.target);
-
-  //       return { ...prev, image: e.target.files[0].name };
-  //     });
-  //   }
-  //   setInterestingFood((prev) => {
-  //     return { ...prev, [e.target.id]: e.target.value };
-  //   });
-  // };
 
   const theme = createTheme({
     typography: {
@@ -84,7 +81,7 @@ function InterestingFoods() {
 
         <Box className="food-details">
           <div className="image-container">
-            <img src={`uploads/${image}`} className="Image-uploaded"></img>
+            <img src={`uploads/${image.name}`} className="Image-uploaded"></img>
           </div>
           <form
             onSubmit={handleShare}
@@ -120,15 +117,7 @@ function InterestingFoods() {
                   // ref={imageRef}
                 />
               </div>
-              {/* <div>
-                <input
-                  className="form-controll-file"
-                  type="file"
-                  name="image"
-                  // value={image}
-                  onChange={handleImageChange}
-                ></input>
-              </div> */}
+
               <TextareaAutosize
                 id="description"
                 aria-label="empty textarea"
@@ -146,8 +135,6 @@ function InterestingFoods() {
               >
                 Share
               </Button>
-
-              {/* <Button variant="outlined">Share</Button> */}
             </ThemeProvider>
           </form>
         </Box>

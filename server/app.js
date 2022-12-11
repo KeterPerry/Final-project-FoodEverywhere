@@ -3,10 +3,11 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { usersRouter } from "./routes/users-routes.js";
-import { chatRouter } from "./routes/chat-route.js";
 import { contactRouter } from "./routes/contact-route.js";
 import { foodRouter } from "./routes/foodItem-route.js";
 import { questionsRouter } from "./routes/question-route.js";
+import { messageRouter } from "./routes/message-route.js";
+import { popularFoodRouter } from "./routes/popularFood-route.js";
 
 export const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,6 +26,7 @@ app.use(cors());
 
 app.use("/users", usersRouter);
 app.use("/contact", contactRouter);
-app.use("/chat", chatRouter);
 app.use("/questions", questionsRouter);
 app.use("/interestingFood", foodRouter);
+app.use("/messages", messageRouter);
+app.use("/popularFood", popularFoodRouter);

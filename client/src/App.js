@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/header/header.js";
 import Login from "./pages/login/login.js";
-import Game from "./pages/games/game.js";
+import Quiz from "./pages/quiz/quiz.js";
 import Home from "./pages/home/home.js";
 import Footer from "./components/footer/footer.js";
 import { Contact } from "./pages/contact/contact";
@@ -12,6 +12,7 @@ import About from "./pages/about/about";
 import InterestingFoods from "./pages/InterestingFoods/interestingFoods.js";
 import Foods from "./pages/allFoods/allFoods.js";
 import PopUp from "./components/popUpDeleteUpdate/popUp.js";
+import Popular from "./pages/popular/popular.js";
 
 function App() {
   return (
@@ -24,10 +25,11 @@ function App() {
         <Route exact path="/foods" component={Foods} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/games" component={Game} />
+        <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/messanger" component={JoiningRoom} />
+        <Route exact path="/popular" component={Popular} />
         {/* <Route exact path="/popup" component={PopUp} /> */}
       </Switch>
 

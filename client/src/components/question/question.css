@@ -1,11 +1,4 @@
 .wrapper{
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    width: 100%;
-    height: 100%;    */
     background-color:rgba(228, 228, 215, 0.627);
    
 }
@@ -43,7 +36,6 @@
    
 }
 .answers button{
-    /* padding: 10px 20px; */
     width:max-content;
     height:max-content;
     text-align: center;

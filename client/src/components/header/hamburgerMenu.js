@@ -23,12 +23,18 @@ export function Hamburger() {
                 Home Page
               </NavLink>
             </li>
-            {/* <li>
+            <li>
               {" "}
               <NavLink to="/About" className="link">
                 About
               </NavLink>
-            </li> */}
+            </li>
+            <li>
+              {" "}
+              <NavLink to="/quiz" className="link">
+                Quiz
+              </NavLink>
+            </li>
             <li>
               {" "}
               <NavLink to="/dashboard" className="link">

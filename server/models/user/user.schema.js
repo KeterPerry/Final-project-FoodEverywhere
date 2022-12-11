@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     minLength: 6,
   },
+  score: {
+    type: Number,
+    default: 0,
+  },
+  messages: [{ type: mongoose.Types.ObjectId, ref: "Message" }],
   tokens: [
     {
       token: {
@@ -31,9 +36,8 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
-  score: {
-    type: Number,
-  },
+
+  foodItems: [{ type: mongoose.Types.ObjectId, ref: "FoodItems" }],
 });
 
 export { userSchema };
