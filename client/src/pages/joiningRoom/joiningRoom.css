@@ -30,12 +30,11 @@
     height: 70vh;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin:auto auto;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     display: flex;
     flex-direction: column;
     gap:4rem;
-    /* background-color: rgba(207, 203, 196, 0.512);  */
     background-color: rgba(210, 197, 178, 0.611);
 
 }

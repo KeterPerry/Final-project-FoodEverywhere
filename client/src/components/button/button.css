@@ -23,7 +23,7 @@
   }
 }
 
-.btn-container:active {
+/* .btn-container:active {
   -webkit-transition: -webkit-box-shadow 100ms ease-in-out;
   transition: -webkit-box-shadow 100ms ease-in-out;
   transition: box-shadow 100ms ease-in-out;
@@ -36,5 +36,4 @@
   transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 21px, rgba(0, 0, 0, 0.22) 0px 1px 3px;
           box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 21px, rgba(0, 0, 0, 0.22) 0px 1px 3px;
-}
-/*# sourceMappingURL=buttonStyle.css.map */
+} */
