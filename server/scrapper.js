@@ -16,6 +16,7 @@ for (let i = 0; i < n + 1; i++) {
 
 export async function scraping() {
   const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
     ignoreDefaultArgs: ["--disable-extensions"],
   });
   let page = await browser.newPage();
