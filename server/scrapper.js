@@ -16,8 +16,7 @@ for (let i = 0; i < n + 1; i++) {
 
 export async function scraping() {
   let browser = await puppeteer.launch({
-    headless: false,
-    args: ["--no-sandbox"],
+    executablePath: "/usr/bin/chromium-browser",
   });
   let page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
