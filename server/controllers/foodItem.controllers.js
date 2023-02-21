@@ -80,7 +80,7 @@ export const editFood = async (req, res) => {
     );
 
     if (!isValidOperation) {
-      return res.status(400).send({ error: "Invalid updates!" });
+      res.status(404).send({ err: "Invalid updates" });
     }
 
     const { id: foodId } = req.params;

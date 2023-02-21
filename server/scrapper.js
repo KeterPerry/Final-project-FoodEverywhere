@@ -15,7 +15,10 @@ for (let i = 0; i < n + 1; i++) {
 }
 
 export async function scraping() {
-  let browser = await puppeteer.launch({ headless: false });
+  let browser = await puppeteer.launch({
+    headless: false,
+    args: ["--no-sandbox"],
+  });
   let page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
   await page.goto(
@@ -58,6 +61,15 @@ export async function foodItemGenerator() {
     let foodDescription = foodDes.reverse().slice(2);
 
     try {
+      // let food_id_new = [];
+      // while(foodName.length && foodImage.length && foodDescription.length){
+      //   food_id_new.push(new PopularFoodItem({
+      //     foodName: foodNamesReversed.pop(),
+      //     foodImage: sliced_food_picture.pop(),
+      //     foodDescription: foodDescription.pop()
+      //   }))
+      // }
+
       let index = 0;
       for (index of food_id) {
         const newPopularFoodItem = new PopularFoodItem({
@@ -74,5 +86,3 @@ export async function foodItemGenerator() {
     flag = false;
   }
 }
-
-// const popularFoodItems = food_id.map((id, index) => {
