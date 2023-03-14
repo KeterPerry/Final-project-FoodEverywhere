@@ -11,15 +11,15 @@ import JoiningRoom from "./pages/joiningRoom/joiningRoom.js";
 import About from "./pages/about/about";
 import InterestingFoods from "./pages/InterestingFoods/interestingFoods.js";
 import Foods from "./pages/allFoods/allFoods.js";
-import PopUp from "./components/popUpDeleteUpdate/popUp.js";
 import Popular from "./pages/popular/popular.js";
+import Introduction from "./pages/introduction/introduction.jsx";
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Introduction} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/interestingfoods" component={InterestingFoods} />
         <Route exact path="/foods" component={Foods} />

@@ -92,6 +92,7 @@ export default function Header() {
                   <img
                     style={{ width: "1.5rem", height: "1.5rem" }}
                     src="/user.png"
+                    alt="user-pic"
                   ></img>
                   <span>Login</span>
                 </div>

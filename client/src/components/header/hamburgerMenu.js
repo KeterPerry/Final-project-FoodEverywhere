@@ -4,7 +4,7 @@ import { Logo } from "../logo/logo.js";
 import { useUser } from "../../context/User.context.js";
 
 export function Hamburger() {
-  const { Login, setLogin, token, setToken, setCurrentUser } = useUser();
+  const { Login } = useUser();
   return (
     <nav>
       <div className="navbar">
