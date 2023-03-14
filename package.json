@@ -8,6 +8,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "npm run install-client && npm run install-server",
     "server": "nodemon server/index.js",
     "client": "npm start --prefix client",
     "start": "node ./server/index.js",
